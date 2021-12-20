@@ -1,0 +1,21 @@
+.loginWrapper {
+  div:last-child {
+    a {
+      margin-top: 3rem;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+    .loginWrapper {
+        div {
+            a {
+                margin-top: 0rem;
+            }
+        }
+        a {
+            margin-left: 0;
+        }
+    }
+}

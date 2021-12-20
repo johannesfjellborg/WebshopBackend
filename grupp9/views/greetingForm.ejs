@@ -1,0 +1,32 @@
+<%- include("partials/_header.ejs") %>
+<main>
+    <div class="greetingWrapper">
+    <h2>Här kan du beskriva vad du vill att din hälsning ska innehålla</h2>
+    <div id="actionMsg"><p><%= error %></p></div>   
+     
+        <form action="/checkout/<%= cartItem.id %>" method="post" >  
+            <div class="center">
+                <img src="<%= cartItem.image %>"
+                    alt="bild på <%= cartItem.name %>" width="150" height="150" />
+                <a href="/productDetails/<%= cartItem.id %>"><%= cartItem.name %></a>  
+                <p><%= cartItem.description %></p>
+                <p><%= cartItem.price %>kr</p>
+                <textarea cols="30" rows="6" name="greeting" placeholder="Max 150 tecken."></textarea>
+            </div>
+            <button type="submit" id="checkoutButton">Köp</button>
+        </form>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+            <script>
+            let stripe = Stripe(
+                "pk_test_51IYTp2AvvUdqWbhli4frY3nOQ2Ra4F7fdZgeBiQGb3huoNWAM6oibmYUdqXInk5NBqB7U1mOKttJPnXJzbHa2bFX00iJ9dLIKZ"
+            );
+
+            document.querySelector("#checkoutButton").addEventListener("click", () => {
+                stripe.redirectToCheckout({ sessionId: "<%=sessionId %>" });
+            });
+    </script>
+    </div>
+</main>
+<%- include("partials/_footer.ejs") %>

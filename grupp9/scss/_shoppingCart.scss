@@ -1,0 +1,82 @@
+.shoppingCartWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+  h2 {
+    text-align: center;
+  }
+  div {
+    h3 {
+      padding: 0 0.5rem;
+      display: inline;
+      color: black;
+      background-color: white;
+    }
+  }
+}
+
+.cartItemDiv {
+  max-width: 70rem;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  img {
+    margin-right: 5rem;
+    max-width: 30rem;
+    border: 0.3rem solid $borderColor;
+    transition: border ease-in-out 0.5s;
+  }
+  img:hover {
+    border: 1.6rem solid $borderColor;
+  }
+}
+
+.cartItemInfoDiv {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  a,
+  p {
+    margin: 1rem;
+  }
+  a {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    background-color: white;
+    box-shadow: 0.3rem 0.3rem $borderColor;
+    border: 0;
+    color: $borderColor;
+    padding: 0rem 0.8rem;
+  }
+  a:hover {
+    background-color: $buttonHoverColor;
+  }
+  p {
+    display: inline;
+    background-color: white;
+    padding: 0rem 0.8rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .cartItemDiv {
+    flex-direction: column;
+    align-items: center;
+    div:first-child {
+      padding: 1rem;
+    }
+    img {
+      margin-right: 0;
+      max-width: 100%;
+    }
+    .cartItemInfoDiv {
+      flex-flow: column nowrap;
+      align-items: center;
+      a {
+        width: 100%;
+      }
+    }
+  }
+}

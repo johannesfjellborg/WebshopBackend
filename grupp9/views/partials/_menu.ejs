@@ -1,0 +1,22 @@
+<div class="headerDiv">
+  <input type="checkbox">
+  <div id="iconsDiv">
+    <i class="fas fa-bars fa-2x"></i>
+    <i class="fas fa-times fa-2x"></i>
+    <a href="/"><h2>Kändishälsningar</h2></a>
+  </div>
+  <nav>
+    <a href="/">Startsida</a>
+    <% if(role === "admin") { %>
+        <a href="/admin">Admin</a>
+    <% } %>
+    <a href="/products">Kändisar</a>
+    <a href="/wishList">Favoriter<i class="fas fa-heart"></i></a>
+    <a href="/shoppingCart">Varukorg<% if(shoppingCartItems !== 0) { %>(<%= shoppingCartItems %>) <% } %><i class="fas fa-shopping-cart"></i></a>
+    <% if(loggedIn === true) { %>
+    <a href="/logout">Logga ut<i class="fas fa-sign-out-alt"></i></a>
+    <% } %> <% if(loggedIn === false) { %>
+    <a href="/login">Logga in<i class="fas fa-sign-in-alt"></i></a>
+    <% } %>
+  </nav>
+</div>

@@ -1,0 +1,50 @@
+.adminWrapper {
+  h1, h2 {
+    background: white;
+    padding: 0rem 0.8rem;
+    font-size: 2.6rem;
+  }
+  h1 {
+    background: white;
+    padding: 0rem 0.8rem;
+    font-size: 3.5rem;
+  }
+  justify-content: space-between;
+  nav {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: row;
+    a {
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      background-color: white;
+      box-shadow: 0.3rem 0.3rem $borderColor;
+      border: 0;
+      color: $borderColor;
+      padding: 0rem 0.8rem;
+    }
+    a:hover {
+      background-color: $buttonHoverColor;
+    }
+    a:first-child{
+        margin-right: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+    .adminWrapper {
+        nav {
+            flex-direction: column;
+            align-items: center;
+            a {
+                width: 100%;
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            a:first-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

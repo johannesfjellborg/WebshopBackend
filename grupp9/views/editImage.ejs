@@ -1,0 +1,20 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="adminWrapper">
+    <%- include("partials/_adminMenu.ejs") %>
+    <%= msg %>
+    <form
+      action="/editImage/<%= product.id%>"
+      method="post"
+      enctype="multipart/form-data"
+    >
+    <div class="buttonWrapper">
+      <label class ="newButton" for="imageUpload">LADDA UPP BILD
+        <input type="file" name="productImage" id="imageUpload" />
+      </label>
+    </div>
+    <button type="submit">Uppdatera</button>
+    </form>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

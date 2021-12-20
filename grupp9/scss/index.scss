@@ -1,0 +1,278 @@
+@import "./mixins";
+@import "./variables";
+@import "./passwordChanged";
+@import "./menu";
+@import "./login";
+@import "./adminHome";
+@import "./shoppingCart";
+@import "./greetingForm";
+@import "./checkoutSuccess";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  background: url("../images/Bakgrundsbild.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(1, 216, 166);
+  background: linear-gradient(
+    0deg,
+    rgba(1, 216, 166, 0.4) 0%,
+    rgba(65, 97, 254, 0.4) 100%
+  );
+  background-attachment: fixed;
+}
+
+main {
+  min-height: 100%;
+  font-size: 2.6rem;
+  @include forms;
+  .errorMessage {
+    border: 0;
+    margin: 3rem;
+    background-color: white;
+    padding: 0rem 0.8rem;
+  }
+  .mainText {
+    @include flexCenter(column);
+    @include mainText;
+    padding: 5rem;
+    @media screen and (max-width: 600px) {
+      padding: 2.1rem;
+    }
+  }
+  .popularProducts {
+    @include flexCenter(row);
+    @include mainText;
+    flex-wrap: wrap;
+    justify-content: center;
+    div {
+      @include flexCenter(column);
+      flex-basis: 26%;
+      margin: 2rem;
+    }
+    @media screen and (max-width: 600px) {
+      div {
+        margin: 1rem;
+      }
+      div:last-child {
+        margin-bottom: 5rem;
+      }
+    }
+  }
+
+  .registerWrapper,
+  .resetPasswordWrapper,
+  .checkMailWrapper,
+  .setPasswordWrapper,
+  .passwordChangedWrapper,
+  .loginWrapper,
+  .adminWrapper,
+  .successWrapper,
+  .greetingWrapper {
+    @include contentWrappers;
+  }
+
+  #actionMsg {
+    padding-top: 3rem;
+    p {
+      display: inline;
+      color: black;
+      background-color: white;
+    }
+  }
+
+  #adminHeader {
+    font-size: 3.5rem;
+    padding: 0rem 0.5rem;
+  }
+
+  #wishListHeader {
+    padding-top: 2rem;
+    h2 {
+      padding: 0 0.5rem;
+      display: inline;
+      color: black;
+      background-color: white;
+    }
+    i {
+      font-size: 3rem;
+      vertical-align: middle;
+      margin-top: -1rem;
+    }
+  }
+
+  #shoppingCartHeader {
+    padding-top: 2rem;
+    h2 {
+      padding: 0 0.5rem;
+      display: inline;
+      color: black;
+      background-color: white;
+    }
+  }
+
+  #productDetailsHeader {
+    background: white;
+    font-size: 3.5rem;
+    padding: 0rem 0.5rem;
+    margin-top: -4.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .productsDiv {
+    @include flexCenter(row);
+    @include productText;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3rem;
+    #productPageProducts {
+      @include flexCenter(column);
+      flex-basis: 26%;
+      margin: 5rem;
+    }
+  }
+
+  .paginationDiv {
+    padding-bottom: 3rem;
+    a {
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      background: white;
+      box-shadow: 0.3rem 0.3rem $borderColor;
+      border: 0;
+      color: $borderColor;
+      padding: 0rem 0.8rem;
+    }
+    a:hover {
+      background: $buttonHoverColor;
+    }
+  }
+
+  .adminProductsDiv {
+    @include flexCenter(row);
+    @include adminProductText;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3rem;
+    #adminPageProducts {
+      @include flexCenter(column);
+      flex: 1;
+      margin: 5rem;
+    }
+  }
+
+  .wishListDiv {
+    @include flexCenter(row);
+    @include wishListText;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3rem;
+    div {
+      @include flexCenter(column);
+      flex-basis: 26%;
+      margin: 5rem;
+    }
+  }
+
+  .productDetailsDiv {
+    @include flexCenter(row);
+    @include productDetailsText;
+    padding: 3rem;
+    div {
+      @include flexCenter(column);
+    }
+  }
+
+  .loginWrapper {
+    margin-top: 8%;
+    @include flexCenter(column);
+    div {
+      margin-bottom: 3rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    div:last-child {
+      a {
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: auto;
+  .footerDiv {
+    @include flexCenter(row);
+    min-height: 5rem;
+    font-size: 1.8rem;
+    background: white;
+    text-transform: uppercase;
+    border-top: 0.3rem solid $borderColor;
+    a {
+      padding: 0.5rem;
+      text-decoration: none;
+    }
+    i {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      @include flexCenter(row);
+      a::after {
+        content: " /";
+      }
+      a:last-child::after {
+        content: "";
+      }
+      a:hover {
+        white-space: unset;
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+        text-decoration-thickness: 0.3rem;
+      }
+      a:hover::after,
+      a:hover:last-child::after {
+        white-space: pre;
+        display: inline-block;
+        text-decoration: none;
+      }
+    }
+  }
+  @media screen and (max-width: 420px) {
+    .footerDiv {
+      div {
+        @include flexCenter(column);
+        a::after {
+          content: "";
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="successWrapper">
+    <h2>Tack för din beställning <%= user.name %>!</h2>
+    <p>Din beställning är mottagen. Din hälsning kommer inom 2-5 dagar.</p>
+    <p>En orderbekräftelse har skickats till <%= user.email %></p>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

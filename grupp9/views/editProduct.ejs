@@ -1,0 +1,21 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="adminWrapper">
+    <%- include("partials/_adminMenu.ejs") %>
+    <%= msg %>
+    <form action="/edit/<%= product.id%>" method="post">
+      <label for="name">Namn: </label>
+      <input type="text" name="name" value="<%= product.name %>" />
+      <label for="price">Pris: </label>
+      <input type="number" name="price" value="<%= product.price %>" />
+      <label for="description">Beskrivning: </label>
+      <input type="text" name="description" value="<%= product.description %>" />
+      <label for="detailedDescription">Detaljerad beskrivning: </label>
+      <textarea rows="5" cols="30" name="detailedDescription">
+        <%= product.detailedDescription %>
+      </textarea>
+      <button type="submit">Uppdatera</button>
+    </form>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

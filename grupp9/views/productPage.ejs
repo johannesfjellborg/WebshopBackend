@@ -1,0 +1,26 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div id="actionMsg"><p><%= msg %></p></div>
+  <div class="productsDiv">
+    <% products.forEach(product=>{ %>
+      <div id="productPageProducts">
+        <a href="/productDetails/<%= product.id %>">
+          <img src="<%= product.image %>" alt="bild på <%= product.name %>" />
+        </a>
+        <a href="/productDetails/<%= product.id %>" class="productName"><%= product.name %></a>
+        <p class="productDescription"><%= product.description %></p>
+        <p class="productPrice"><%= product.price %> KR</p>
+        <a href="/shoppingCart/add/?id=<%= product.id %>&page=<%=(totalProductsShowing/productsToShow)%>" id="addToCart">Lägg till i varukorg</a>
+        <a href="/wishList/add/?id=<%= product.id %>&page=<%=(totalProductsShowing/productsToShow)%>" id="addToWishList">Lägg till i favoriter</a>
+      </div>
+    <% }) %>
+  </div>
+  <div class="paginationDiv">
+    <% if(totalPages !==totalProductsShowing/productsToShow) { %>
+    <a href="/products/?page=<%=(totalProductsShowing/productsToShow) +1%>">Visa fler kändisar</a>
+    <% } else { %>
+    <a href="/products/?page=1">Visa färre kändisar</a>
+    <% } %>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

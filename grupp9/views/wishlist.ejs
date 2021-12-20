@@ -1,0 +1,22 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div id="wishListHeader">
+    <h2>Dina favoriter <i class="fas fa-heart"></i></h2>
+  </div>
+  <div id="actionMsg"><p><%= msg %></p></div>
+  <div class="wishListDiv">
+    <% wishList.forEach(product=>{ %>
+    <div>
+      <a href="/productDetails/<%= product.id %>">
+        <img src="<%= product.image %>" alt="bild på <%= product.name %>" />
+      </a>
+      <a href="/productDetails/<%= product.id %>" class="productName"><%= product.name %></a>
+      <a href="/productDetails/<%= product.id %>" class="productDescription"><%= product.description %></a>
+      <a href="/productDetails/<%= product.id %>" class="productPrice"><%= product.price %> KR</a>
+      <a href="/shoppingCart/add/?id=<%= product.id %>" id="addToCart">Lägg till i varukorg</a>
+      <a href="/wishList/remove/<%= product.id %>" id="removeFromWishList">Ta bort favorit</a>
+    </div>
+    <% }); %>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

@@ -1,0 +1,129 @@
+.headerDiv {
+    @include flexCenter(row);
+    min-height: 5rem;
+    font-size: 1.8rem;
+    padding: 2rem;
+    background: white;
+    text-transform: uppercase;
+    border-bottom: 0.3rem solid $borderColor;
+    input {
+      display: none;
+    }
+    .fa-bars,
+    .fa-times {
+      display: none;
+    }
+    nav {
+      i {
+        margin-left: 0.3rem;
+      }
+      a::after {
+        white-space: pre;
+        content: " /";
+      }
+      a:last-child::after {
+        content: "";
+      }
+      a:hover {
+        white-space: unset;
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+        text-decoration-thickness: 0.3rem;
+      }
+      a:hover::after {
+        content: " /";
+        white-space: pre;
+        display: inline-block;
+        text-decoration: none;
+      }
+      a:hover:last-child::after {
+        content: "";
+        white-space: pre;
+        display: inline-block;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .headerDiv {
+      display: flex;
+      flex-direction: column;
+      #iconsDiv {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        a {
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        .fas {
+          display: block;
+          width: 2rem;
+        }
+        .fa-times {
+          position: absolute;
+          opacity: 0;
+        }
+        .fa-bars {
+          position: static;
+          transition: opacity ease-in-out 0.5s;
+        }
+      }
+      nav {
+        top: 7rem;
+        max-height: 0;
+        width: 100%;
+        overflow: hidden;
+        background-color: white;
+        a:link,
+        a:visited {
+          text-align: left;
+          display: block;
+          padding: 1rem;
+          margin-left: 1rem;
+          text-decoration: none;
+        }
+        a:hover {
+          color: $borderColor;
+        }
+        a::after {
+          content: "";
+        }
+        a:last-child {
+          margin-bottom: 1.7rem;
+        }
+      }
+      input {
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 2rem;
+        width: 4rem;
+        height: 4rem;
+        cursor: pointer;
+        z-index: 100;
+      }
+      input:checked ~ #iconsDiv .fa-times {
+        position: static;
+        opacity: 1;
+        transition: opacity ease-in-out 0.5s;
+      }
+  
+      input:checked ~ #iconsDiv .fa-bars {
+        position: absolute;
+        opacity: 0;
+      }
+  
+      input:checked ~ nav {
+        position: absolute;
+        margin-top: 1rem;
+        max-height: 35rem;
+        border-bottom: 0.3rem solid $borderColor;
+      }
+    }
+  }

@@ -1,0 +1,16 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="registerWrapper">
+    <% if(error) { %>
+      <p><%= error %></p>
+    <% } %>
+    <form class="registerForm" action="/register" method="post">
+      <input type="text" name="name" id="nameInput" placeholder="Namn" />
+      <input type="email" name="email" id="emailInput" placeholder="E-postadress" />
+      <input type="password" name="password" id="passwordInput" placeholder="Lösenord" />
+      <input type="password" name="passwordConfirm" id="confirmInput" placeholder="Bekräfta lösenord" />
+      <button type="submit">Slutför registrering</button>
+    </form>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

@@ -1,0 +1,20 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="adminWrapper">
+    <%- include("partials/_adminMenu.ejs") %>
+    <p class="errorMessage"><%= msg %></p>
+    <form action="/addProduct" method="post" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="Namn" />
+      <input type="number" name="price" placeholder="Pris" />
+      <input type="text" name="description" placeholder="Beskrivning" />
+      <textarea rows="5" cols="30" name="detailedDescription" placeholder="Detaljerad beskrivning"></textarea>
+      <div class="buttonWrapper">
+        <label class ="newButton" for="imageUpload">LADDA UPP BILD
+          <input type="file" name="productImage" id="imageUpload" />
+        </label>
+      </div>
+      <button type="submit">Lägg till</button>
+    </form>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

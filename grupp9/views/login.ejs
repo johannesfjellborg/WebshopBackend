@@ -1,0 +1,22 @@
+<%- include("partials/_header.ejs") %>
+<main>
+    <div class="loginWrapper">
+        <% if(error) { %>
+            <p class="errorMessage">
+                <%= error %>
+            </p>
+        <% } %>
+        <form action="/login" method="post">
+            <input type="text" name="email" placeholder="E-postadress">
+            <input type="password" name="password" placeholder="Lösenord">
+            <div>
+                <button type="submit">Logga in</button>
+                <a href="/resetpassword">Glömt lösenordet?</a>
+            </div>
+            <div>
+                <a href="/register">Registrera dig</a>
+            </div>
+        </form>
+    </div>
+</main>
+<%- include("partials/_footer.ejs") %>

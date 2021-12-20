@@ -1,0 +1,24 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="adminWrapper">
+    <%- include("partials/_adminMenu.ejs") %>
+    <p class="errorMessage"><%= msg %></p>
+    <h2 id="adminHeader">Här är de kändisar du lagt till:</h2>
+    <div class="adminProductsDiv">
+      <% products.forEach(product =>{ %>
+        <div id="adminPageProducts">
+          <a href="/productDetails/<%= product.id %>">
+            <img src="<%= product.image %>" alt="bild på <%= product.name %>" />
+          </a>
+          <a href="/productDetails/<%= product.id %>" class="productName"><%= product.name %></a>
+          <p class="productDescription"><%= product.description %></p>
+          <p class="productPrice"><%= product.price %> KR</p>
+          <a class="adminActions" href="/edit/<%=product.id%>"><i class="fas fa-edit"></i> Redigera information</a>
+          <a class="adminActions" href="/editImage/<%=product.id%>"><i class="fas fa-file-image"></i> Redigera bild</a>
+          <a class="adminActions" href="/delete/<%=product.id%>"><i class="fas fa-trash-alt"></i> Radera</a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>

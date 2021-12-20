@@ -1,0 +1,33 @@
+<%- include("partials/_header.ejs") %>
+<main>
+  <div class="shoppingCartWrapper">
+    <div id="shoppingCartHeader"><h2>Din varukorg</h2></div>
+    <div id="actionMsg"><p><%= error %></p></div>
+      <% shoppingCart.forEach(product=>{ %>
+        <div class="cartItemDiv">
+          <div>
+            <a href="/productDetails/<%= product.orderItem.product.id %>">
+              <img src="<%= product.orderItem.product.image %>" alt="bild på <%= product.orderItem.product.name %>"/>
+            </a>
+          </div>
+          <div class="cartItemInfoDiv">
+            <a href="/productDetails/<%= product.orderItem.product.id %>"><%= product.orderItem.product.name %></a>
+            <p><%= product.orderItem.product.description %></p>
+            <p><%= product.orderItem.product.price %> KR</p>
+            <a href="/shoppingCart/remove/<%= product.orderItem.product.id %>">Ta bort från varukorgen</a>
+            <a href="/checkout/<%= product.orderItem.product.id %>">Vidare till hälsningsformulär</a>
+          </div>
+        </div>
+      <% }) %>
+    <% if(totalPrice === 0) { %>
+    <div>
+      <h3>.. är tyvärr tom.</h3>
+    </div>
+    <% } else { %>
+    <div>
+      <h3>Totalpris: <%= totalPrice %> KR</h3>
+    </div>
+    <% } %>
+  </div>
+</main>
+<%- include("partials/_footer.ejs") %>
