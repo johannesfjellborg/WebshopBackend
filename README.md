@@ -32,7 +32,7 @@ A web shop that sells personalized video messages from celebrities. This was mad
 Clone the repo and install the dependencies using the following steps:
 1. Clone the repo using Git.
 ```
-git clone https://github.com/sophie-akesson/grupp9.git
+git clone https://github.com/johannesfjellborg/WebshopBackend.git
 ```
 2. Install dependencies using npm.
 ```
